@@ -14,8 +14,34 @@ const server = http.createServer(app);
 const io = initializeSocket(server);
 
 app.use(json());
-app.use(cors());
-// app.options("*", cors());
+
+// Enhanced CORS configuration
+app.use(
+  cors({
+    origin: [
+      "http://localhost:8081",
+      "http://localhost:8083",
+      "http://localhost:19006",
+      "exp://192.168.1.100:8081",
+      "http://192.168.1.100:8081",
+      // Allow all ngrok URLs for development
+      /^https:\/\/.*\.ngrok-free\.app$/,
+      /^https:\/\/.*\.ngrok\.io$/,
+      /^http:\/\/.*\.ngrok-free\.app$/,
+      /^http:\/\/.*\.ngrok\.io$/,
+    ], // Expo development servers and ngrok URLs
+    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+    allowedHeaders: [
+      "Content-Type",
+      "Authorization",
+      "ngrok-skip-browser-warning",
+    ],
+    credentials: true,
+  })
+);
+
+// Handle preflight requests explicitly
+app.options("*", cors());
 
 app.use("/auth", authReg);
 app.use("/", matchingRoutes);

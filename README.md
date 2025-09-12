@@ -40,11 +40,13 @@ anonimVent/
 ### Server Setup
 
 1. Navigate to the server directory:
+
    ```bash
    cd server
    ```
 
 2. Install dependencies:
+
    ```bash
    npm install
    ```
@@ -53,8 +55,8 @@ anonimVent/
    ```bash
    cp .env.example .env
    ```
-   
 4. Edit `.env` file with your actual values:
+
    ```env
    # Database Configuration
    DB_HOST=localhost
@@ -80,27 +82,31 @@ anonimVent/
 ### Client Setup
 
 1. Navigate to the client directory:
+
    ```bash
    cd client
    ```
 
 2. Install dependencies:
+
    ```bash
    npm install
    ```
 
 3. Set up environment variables:
+
    ```bash
    cp .env.example .env
    ```
 
 4. Update the `.env` file with your ngrok URL:
+
    ```env
    # API Configuration
    EXPO_PUBLIC_API_BASE_URL=https://your-ngrok-url.ngrok-free.app
    EXPO_PUBLIC_API_BASE_URL_FALLBACK=http://your-ngrok-url.ngrok-free.app
 
-   # Socket Configuration  
+   # Socket Configuration
    EXPO_PUBLIC_SOCKET_URL=http://your-ngrok-url.ngrok-free.app
    ```
 
@@ -122,25 +128,25 @@ anonimVent/
 
 ### Server (.env)
 
-| Variable | Description | Required |
-|----------|-------------|----------|
-| `DB_HOST` | PostgreSQL host | Yes |
-| `DB_PORT` | PostgreSQL port | Yes |
-| `DB_NAME` | Database name | Yes |
-| `DB_USER` | Database username | Yes |
-| `DB_PASSWORD` | Database password | Yes |
-| `JWT_SECRET` | JWT signing secret | Yes |
-| `JWT_REFRESH_SECRET` | JWT refresh token secret | Yes |
-| `PORT` | Server port | No (defaults to 8080) |
-| `NODE_ENV` | Environment mode | No |
+| Variable             | Description              | Required              |
+| -------------------- | ------------------------ | --------------------- |
+| `DB_HOST`            | PostgreSQL host          | Yes                   |
+| `DB_PORT`            | PostgreSQL port          | Yes                   |
+| `DB_NAME`            | Database name            | Yes                   |
+| `DB_USER`            | Database username        | Yes                   |
+| `DB_PASSWORD`        | Database password        | Yes                   |
+| `JWT_SECRET`         | JWT signing secret       | Yes                   |
+| `JWT_REFRESH_SECRET` | JWT refresh token secret | Yes                   |
+| `PORT`               | Server port              | No (defaults to 8080) |
+| `NODE_ENV`           | Environment mode         | No                    |
 
 ### Client (.env)
 
-| Variable | Description | Required |
-|----------|-------------|----------|
-| `EXPO_PUBLIC_API_BASE_URL` | Main API URL (HTTPS) | Yes |
-| `EXPO_PUBLIC_API_BASE_URL_FALLBACK` | Fallback API URL (HTTP) | Yes |
-| `EXPO_PUBLIC_SOCKET_URL` | Socket.io server URL | Yes |
+| Variable                            | Description             | Required |
+| ----------------------------------- | ----------------------- | -------- |
+| `EXPO_PUBLIC_API_BASE_URL`          | Main API URL (HTTPS)    | Yes      |
+| `EXPO_PUBLIC_API_BASE_URL_FALLBACK` | Fallback API URL (HTTP) | Yes      |
+| `EXPO_PUBLIC_SOCKET_URL`            | Socket.io server URL    | Yes      |
 
 ## Security Notes
 
@@ -152,15 +158,18 @@ anonimVent/
 ## API Endpoints
 
 ### Authentication
+
 - `POST /auth/sign-up` - User registration
 - `POST /auth/sign-in` - User login
 
 ### Matching
+
 - Socket.io events for real-time chat functionality
 
 ## Technologies Used
 
 ### Frontend (Client)
+
 - React Native with Expo
 - TypeScript
 - Socket.io Client
@@ -169,6 +178,7 @@ anonimVent/
 - NativeWind (Tailwind CSS for React Native)
 
 ### Backend (Server)
+
 - Node.js with Express
 - PostgreSQL with pg
 - Socket.io
